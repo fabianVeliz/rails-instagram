@@ -1,11 +1,15 @@
 h1 Listing photos
-
+br
+- if user_signed_in?
+  div = link_to 'New photo', new_photo_path
+  br
 - if @photos.any?
   - @photos.each do |photo|
-    div = photo.title
-    div = photo.description
-    div
-      = image_tag photo.asset.url
+    = link_to photo_path(photo)
+      div = photo.title
+      div = photo.description
+      div
+        = image_tag photo.asset.url(:medium)
 
 - else
   |No photo

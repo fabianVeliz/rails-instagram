@@ -1,0 +1,7 @@
+h1 MyPhotos
+br
+- @photos.each do |photo|
+    div = photo.title
+    div = photo.description
+    div
+      = image_tag photo.asset.url(:medium)

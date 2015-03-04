@@ -4,6 +4,8 @@ Rails.application.routes.draw do
 
   resources :photos, except: [:update, :destroy, :edit]
 
+  resources :my_photos, only: [:index]
+
   root 'photos#index'
 
 end
