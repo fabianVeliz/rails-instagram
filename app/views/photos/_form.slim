@@ -1,0 +1,17 @@
+= form_for(@photo) do |f|
+  .fields
+    .field
+      = f.label :title
+      = f.text_field :title
+    br
+    .field
+      = f.label :description
+      = f.text_area :description
+    br
+    .field
+      = f.label :asset
+      = f.file_field :asset
+    br
+  .actions
+    .action
+      = f.submit

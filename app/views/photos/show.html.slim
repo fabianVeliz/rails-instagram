@@ -1,0 +1,10 @@
+h1 Show photo
+
+div = @photo.title
+div = @photo.description
+div
+  = image_tag @photo.asset.url
+
+
+div
+  = link_to 'Back', photos_path

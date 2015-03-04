@@ -1,0 +1,11 @@
+h1 Listing photos
+
+- if @photos.any?
+  - @photos.each do |photo|
+    div = photo.title
+    div = photo.description
+    div
+      = image_tag photo.asset.url
+
+- else
+  |No photo
