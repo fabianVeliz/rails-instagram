@@ -2,7 +2,7 @@ class PhotosController < ApplicationController
   before_action :authenticate_user!, only: [:new, :create]
 
   def index
-    @photos = Photo.all
+    @photos = Photo.includes(:user).all
   end
 
   def new

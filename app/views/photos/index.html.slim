@@ -5,11 +5,13 @@ br
   br
 - if @photos.any?
   - @photos.each do |photo|
-    = link_to photo_path(photo)
-      div = photo.title
-      div = photo.description
-      div
-        = image_tag photo.asset.url(:medium)
+    div = photo.title
+    div = photo.description
+    div = link_to photo_path(photo) do
+      = image_tag photo.asset.url(:medium)
+    div
+      = link_to user_path(photo.user.id) do
+        = photo.user.email
 
 - else
   |No photo
