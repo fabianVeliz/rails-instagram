@@ -1,0 +1,31 @@
+css:
+  header {
+    overflow: hidden;
+    background-color: #2196F3;
+    padding: 10px;
+    color: #fff;
+  }
+
+  header a {
+    color: #fff;
+  }
+
+  .left {
+    float: left;
+  }
+
+  .right {
+    float: right;
+  }
+
+header
+  .left
+    = link_to 'RailsInstagram', root_path
+
+  .right
+    - if user_signed_in?
+      = link_to 'Close session', destroy_user_session_path, method: :delete
+    - else
+      = link_to 'Sign In', new_user_session_path
+      |&nbsp;Or&nbsp;
+      = link_to 'Sign Up', new_user_registration_path

@@ -6,11 +6,20 @@ head
   = javascript_include_tag 'application'
   = csrf_meta_tags
 body
+  .container-page
+    .notice
+      = notice
+    .alert
+      = alert
 
-  .notice
-    = notice
-  .alert
-    = alert
+    = render partial: 'shared/header'
 
-  = yield
+    .content
+      = yield
 
+css:
+  *, *:before, *:after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
