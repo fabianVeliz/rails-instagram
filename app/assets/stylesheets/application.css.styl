@@ -1,0 +1,94 @@
+@import 'fonts'
+@import 'mixins/*'
+
+*, *:before, *:after
+  margin: 0
+  padding: 0
+  box-sizing border-box
+
+body
+  font-family 'Roboto', sans-serif
+
+ul
+  list-style none
+
+.left
+  float left
+
+.right
+  float right
+
+.hide
+  display none
+
+.inner-container
+  clearfix()
+  position relative
+  max-width 1200px
+  margin 0 auto
+  padding-left 50px
+  padding-right 50px
+
+header
+  clearfix()
+  background-color #2196F3
+  color #fff
+  position relative
+  z-index 999
+
+  .logo
+    padding 16px
+    padding-left 0
+    display inline-block
+
+  a
+    color #fff
+
+.navigation
+  display inline-block
+  cursor pointer
+  margin-left 10px
+  position relative
+
+  &.active
+    background-color #64B5F6
+
+  .avatar
+    padding 5px 0
+
+    i,img
+      display inline-block
+      vertical-align middle
+
+    i
+      padding-left 14px
+
+    img
+      height 40px
+      width 40px
+      border-radius 40px
+
+  ul
+    display none
+    position absolute
+    top 100%
+    right 0
+    width 150px
+    background-color #42A5F5
+
+    li a
+      text-decoration none
+      padding 10px
+      display block
+      text-align center
+
+.items
+  clearfix()
+
+.item
+  float left
+  width 48.5%
+  margin-right 3%
+
+  &:nth-child(2n)
+    margin-right 0

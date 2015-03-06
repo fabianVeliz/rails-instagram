@@ -1,10 +1,11 @@
-h1 Show photo
-br
-div = @photo.title
-div = @photo.description
-div
-  = image_tag @photo.asset.url
+.inner-container
+  h1 Show photo
+  br
+  div = @photo.title
+  div = @photo.description
+  div
+    = image_tag @photo.asset.url
 
 
-div
-  = link_to 'Back', photos_path
+  div
+    = link_to 'Back', photos_path

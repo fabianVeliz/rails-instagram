@@ -1,0 +1,12 @@
+.inner-container
+  div
+    strong User name:&nbsp;
+    = @user.user_name
+
+  div
+    strong Email:&nbsp;
+    = @user.email
+  div
+    strong Avatar:&nbsp;
+  = image_tag @user.avatar.url
+

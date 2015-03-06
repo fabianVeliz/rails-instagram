@@ -1,33 +1,23 @@
-css:
-  header {
-    overflow: hidden;
-    background-color: #2196F3;
-    padding: 10px;
-    color: #fff;
-  }
-
-  header a {
-    color: #fff;
-  }
-
-  .left {
-    float: left;
-  }
-
-  .right {
-    float: right;
-  }
-
 header
-  .left
-    = link_to 'RailsInstagram', root_path
+  .inner-container
+    .left
+      = link_to 'RailsInstagram', root_path, class: 'logo'
 
-  .right
-    - if user_signed_in?
-      = link_to 'My Photos', my_photos_path
-      |&nbsp;
-      = link_to 'Close session', destroy_user_session_path, method: :delete
-    - else
-      = link_to 'Sign In', new_user_session_path
-      |&nbsp;Or&nbsp;
-      = link_to 'Sign Up', new_user_registration_path
+    .right
+      - if user_signed_in?
+        = link_to 'My Photos', user_photos_path(current_user.user_name)
+        .navigation#js-navigation
+          .avatar
+            = image_tag current_user.avatar.url(:thumb)
+            i.icon-arrow-down
+          ul
+            li
+              = link_to 'My profile', user_path(current_user.user_name)
+            li
+              = link_to 'Edit account', edit_user_registration_path
+            li
+              = link_to 'Close session', destroy_user_session_path, method: :delete
+      - else
+        = link_to 'Sign In', new_user_session_path
+        |&nbsp;Or&nbsp;
+        = link_to 'Sign Up', new_user_registration_path
