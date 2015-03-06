@@ -5,14 +5,13 @@ header
 
     .right
       - if user_signed_in?
-        = link_to 'My Photos', user_photos_path(current_user.user_name)
         .navigation#js-navigation
           .avatar
-            = image_tag current_user.avatar.url(:thumb)
+            = get_avatar(current_user)
             i.icon-arrow-down
           ul
             li
-              = link_to 'My profile', user_path(current_user.user_name)
+              = link_to 'My profile', user_profile_path(current_user.user_name)
             li
               = link_to 'Edit account', edit_user_registration_path
             li

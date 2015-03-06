@@ -2,11 +2,11 @@ Rails.application.routes.draw do
 
   devise_for :users
 
-  resources :photos, except: [:update, :destroy, :edit]
+  resources :photos, except: [:update, :destroy, :edit] do
+    resources :comments, only: [:new, :create]
+  end
 
-  get '/:user_name/profile', to: 'users#profile', as: 'user'
-
-  get '/:user_name/photos',  to: 'users#photos', as: 'user_photos'
+  get '/:user_name', to: 'users#profile', as: 'user_profile'
 
   root 'photos#index'
 

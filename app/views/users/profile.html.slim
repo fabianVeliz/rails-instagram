@@ -1,12 +1,20 @@
 .inner-container
-  div
-    strong User name:&nbsp;
-    = @user.user_name
+  .profile
+    .left
+      div = image_tag @user.avatar.url(:medium)
+      h2 = @user.user_name
+      div = @user.email
 
-  div
-    strong Email:&nbsp;
-    = @user.email
-  div
-    strong Avatar:&nbsp;
-  = image_tag @user.avatar.url
+    .right
+      div = link_to 'New photo', new_photo_path
+      br
 
+      - if @photos.any?
+        - @photos.each do |photo|
+            div = photo.title
+            div = photo.description
+            div
+              = image_tag photo.asset.url(:medium)
+
+      - else
+        |No photos

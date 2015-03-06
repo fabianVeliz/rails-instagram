@@ -4,8 +4,7 @@
   div = @photo.title
   div = @photo.description
   div
-    = image_tag @photo.asset.url
-
+    = image_tag @photo.asset.url(:medium)
 
   div
     = link_to 'Back', photos_path
