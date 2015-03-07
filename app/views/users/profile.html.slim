@@ -1,16 +1,14 @@
 .inner-container
   .profile
     .left
-      div = image_tag @user.avatar.url(:medium)
+      div = get_avatar(@user.avatar.url(:medium))
       h2 = @user.user_name
       div = @user.email
 
     .right
-      div = link_to 'New photo', new_photo_path
-      br
-
       - if @photos.any?
         - @photos.each do |photo|
+          .item
             div = photo.title
             div = photo.description
             div

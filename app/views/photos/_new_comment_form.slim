@@ -1,0 +1,9 @@
+= form_for([@photo, @comment]) do |f|
+
+  .fields
+    .field
+      = f.text_area :body
+
+  .actions
+    .action
+      = f.submit

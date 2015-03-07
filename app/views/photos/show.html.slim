@@ -1,10 +1,27 @@
 .inner-container
   h1 Show photo
   br
-  div = @photo.title
-  div = @photo.description
-  div
+  .item.show
+    div = @photo.title
+    div = @photo.description
     = image_tag @photo.asset.url(:medium)
 
-  div
-    = link_to 'Back', photos_path
+  .comments
+    h2 Comments
+    br
+    - @comments.each do |comment|
+      .comment
+        div
+          = link_to user_profile_path(comment.user.user_name) do
+            = get_avatar(comment.user.avatar.url(:thumb))
+        div = link_to comment.user.user_name, user_profile_path(comment.user.user_name)
+        div = comment.body
+    br
+
+    - if user_signed_in?
+      h3 Give your comment
+      = render partial: 'new_comment_form'
+    - else
+      |You can loggued to comment.
+      = link_to 'Login', new_user_session_path
+      = link_to 'Register', new_user_registration_path

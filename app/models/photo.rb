@@ -1,5 +1,4 @@
 class Photo < ActiveRecord::Base
-  belongs_to :user
 
   has_attached_file :asset,
                     styles: {
@@ -9,4 +8,7 @@ class Photo < ActiveRecord::Base
                     default_url: "/images/:style/missing.png"
   validates_attachment_content_type :asset,
                                     content_type: /\Aimage\/.*\Z/
+
+  belongs_to :user
+  has_many :comments
 end

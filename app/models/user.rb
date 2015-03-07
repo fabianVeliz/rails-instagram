@@ -1,6 +1,5 @@
 class User < ActiveRecord::Base
-  # Include default devise modules. Others available are:
-  # :confirmable, :lockable, :timeoutable and :omniauthable
+
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
@@ -12,9 +11,10 @@ class User < ActiveRecord::Base
                     default_url: Proc.new{ |a| a.instance.get_gravatar }
 
   validates_attachment_content_type :avatar, :content_type => /\Aimage\/.*\Z/
+  validates_uniqueness_of :user_name
 
   has_many :photos
-  validates_uniqueness_of :user_name
+  has_many :comments
 
   def get_gravatar
     "http://www.gravatar.com/avatar/"+Digest::MD5.hexdigest(email)

@@ -1,3 +1,5 @@
+//Basic styles to build the app
+
 @import 'fonts'
 @import 'mixins/*'
 
@@ -85,13 +87,34 @@ header
 .items
   clearfix()
 
-.item
-  float left
-  width 48.5%
-  margin-right 3%
+  .item
+    float left
+    width 48.5%
+    margin-right 3%
 
-  &:nth-child(2n)
-    margin-right 0
+    &:nth-child(2n)
+      margin-right 0
+
+
+.item
+  box-shadow: 1px 1px 5px 1px rgba(195, 195, 195, 0.31);
+  padding: 10px;
+  margin-bottom 10px
+
+  img
+    display: block;
+    width: 100%;
+
+  &.show
+    text-align center
+
+    div
+      text-align left
+
+    img
+      display inline-block
+      width auto
+
 
 .profile
   margin-top 20px
