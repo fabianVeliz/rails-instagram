@@ -15,8 +15,17 @@ class User < ActiveRecord::Base
 
   has_many :photos
   has_many :comments
+  has_many :followings
 
   def get_gravatar
     "http://www.gravatar.com/avatar/"+Digest::MD5.hexdigest(email)
+  end
+
+  def follow_user?(user)
+    if followings.where(user_following_id: user.id).first
+      true
+    else
+      false
+    end
   end
 end

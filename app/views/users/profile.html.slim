@@ -5,6 +5,13 @@
       h2 = @user.user_name
       div = @user.email
 
+      - if user_signed_in?
+        - if current_user.follow_user?(@user)
+          br
+          b you follow to user
+        - else
+          = button_to 'Follow', followings_path(user_name: params[:user_name])
+
     .right
       - if @photos.any?
         - @photos.each do |photo|
