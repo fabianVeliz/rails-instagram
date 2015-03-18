@@ -2,7 +2,11 @@ class PhotosController < ApplicationController
   before_action :authenticate_user!, only: [:new, :create]
 
   def index
-    @photos = Photo.includes(:user).all
+    if user_signed_in?
+      @photos = Photo.where(user_id: current_user.followed_users)
+    else
+      @photos = Photo.includes(:user).all
+    end
   end
 
   def new
