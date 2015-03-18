@@ -2,6 +2,10 @@ header
   .inner-container
     .left
       = link_to 'RailsInstagram', root_path, class: 'logo'
+      - if user_signed_in?
+        = link_to 'New photo', new_photo_path, class: 'item-menu'
+        = link_to 'My profile', user_profile_path(current_user.user_name), class: 'item-menu'
+        = link_to 'Users list', users_path, class: 'item-menu'
 
     .right
       - if user_signed_in?
@@ -11,7 +15,7 @@ header
             i.icon-arrow-down
           ul
             li
-              = link_to 'My profile', user_profile_path(current_user.user_name)
+              = link_to current_user.user_name, user_profile_path(current_user.user_name)
             li
               = link_to 'Edit account', edit_user_registration_path
             li
