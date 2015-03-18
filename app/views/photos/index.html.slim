@@ -1,13 +1,10 @@
 .inner-container
   h1 Listing photos
   br
-  - if user_signed_in?
-    div = link_to 'New photo', new_photo_path
-    br
+
   - if @photos.any?
     .items
       = render @photos
-        
 
   - else
     |No photo

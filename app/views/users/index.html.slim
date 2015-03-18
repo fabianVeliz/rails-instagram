@@ -1,0 +1,7 @@
+.inner-container
+  h1 Users list
+  br
+
+  - users.each do |u|
+    div
+      = link_to u.user_name, user_profile_path(u.user_name)

@@ -1,16 +1,26 @@
 .inner-container
   .profile
     .left
+
       div = get_avatar(@user.avatar.url(:medium))
       h2 = @user.user_name
       div = @user.email
+      div = @user.id
 
-      - if user_signed_in?
+      - if user_signed_in? && !my_profile?
         - if current_user.follow_user?(@user)
-          br
-          b you follow to user
+          = button_to 'No Follow!', following_path(@user), method: :delete
         - else
           = button_to 'Follow', followings_path(user_name: params[:user_name])
+      br
+      h4 Followings:
+      - if @user.followings_count > 0
+        = @user.followings_count
+      - else
+        |No followings
+
+      h4 Followers:
+      |Not implemented yet
 
     .right
       - if @photos.any?
