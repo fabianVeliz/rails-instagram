@@ -22,6 +22,7 @@
       h3 Give your comment
       = render partial: 'new_comment_form'
     - else
-      |You can loggued to comment.
+      |You must logged to comment.&nbsp;
       = link_to 'Login', new_user_session_path
+      |&nbsp;
       = link_to 'Register', new_user_registration_path

@@ -3,7 +3,7 @@ class PhotosController < ApplicationController
 
   def index
     if user_signed_in?
-      @photos = Photo.where(user_id: current_user.followed_users)
+      @photos = Photo.where(user_id: current_user.followed_users_and_me)
     else
       @photos = Photo.includes(:user).all
     end
@@ -27,7 +27,6 @@ class PhotosController < ApplicationController
     @photo = Photo.find(params[:id])
     @comment = Comment.new
     @comments = @photo.comments.all.includes(:user)
-
   end
 
   private

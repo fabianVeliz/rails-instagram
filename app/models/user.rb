@@ -38,8 +38,9 @@ class User < ActiveRecord::Base
     followings.count
   end
 
-  def followings_ids
-    followings.map{|u| u.user_following_id}
+  # This method is used in photos#index to show photos of the followed users and mine
+  def followed_users_and_me
+    followings.map{|u| u.user_following_id} + [id]
   end
 
   private

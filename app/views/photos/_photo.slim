@@ -4,5 +4,5 @@
   div = link_to photo_path(photo) do
     = image_tag photo.asset.url(:medium)
   div
-    = link_to user_profile_path(photo.user.user_name) do
+    = link_to user_profile_path(photo.user.slug) do
       = photo.user.user_name
