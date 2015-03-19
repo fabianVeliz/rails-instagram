@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  expose(:user)   { User.friendly.find(params[:slug]) }
+  expose(:user)   { User.friendly.find(params[:slug])}
   expose(:photos) { user.photos }
   expose(:users)
 

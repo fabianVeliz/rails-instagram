@@ -9,10 +9,8 @@
         = user.email
 
       - if user_signed_in? && !my_profile?
-        - if current_user.follow_user?(user)
-          = button_to 'No Follow!', following_path(id: user.id), method: :delete
-        - else
-          = button_to 'Follow', followings_path(slug: params[:slug])
+        #following
+          = render 'following', user: user
       br
       h4 Followed users:
       - if user.followings_count > 0

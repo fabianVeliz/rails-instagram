@@ -6,7 +6,7 @@ Rails.application.routes.draw do
     resources :comments, only: [:create]
   end
 
-  resources :followings, only: [:create, :destroy]
+  resources :followings, only: [:create, :destroy], param: :slug
 
   resources :users, only: :index
 
