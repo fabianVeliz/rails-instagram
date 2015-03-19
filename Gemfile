@@ -12,6 +12,7 @@ gem 'devise'
 gem 'figaro'
 gem "paperclip",       "~> 4.2"
 gem 'decent_exposure'
+gem 'friendly_id', '~> 5.1.0'
 
 # Frontend
 gem 'stylus', '~> 1.0.1'

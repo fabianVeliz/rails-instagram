@@ -4,7 +4,7 @@ module ApplicationHelper
   end
 
   def my_profile?
-    current_user.user_name == params[:user_name]
+    current_user.slug == params[:slug]
   end
 
 end

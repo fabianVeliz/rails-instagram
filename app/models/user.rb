@@ -1,4 +1,5 @@
 class User < ActiveRecord::Base
+  extend FriendlyId
 
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
@@ -11,15 +12,15 @@ class User < ActiveRecord::Base
                     default_url: Proc.new{ |a| a.instance.get_gravatar }
 
   validates_attachment_content_type :avatar, :content_type => /\Aimage\/.*\Z/
-  validates_uniqueness_of :user_name, :email
-  validates :user_name, presence: true
+  validates :user_name, presence: true, uniqueness: { case_sensitive: false }
 
   has_many :photos
   has_many :comments
   has_many :followings
 
-  before_save :format_user_name
   has_many :followed_users, through: :followings, source: :user_following
+
+  friendly_id :user_name, use: :slugged
 
   def get_gravatar
     "//gravatar.com/avatar/"+Digest::MD5.hexdigest(email)
@@ -42,10 +43,5 @@ class User < ActiveRecord::Base
   end
 
   private
-
-  def format_user_name
-    self.user_name = user_name.parameterize
-  end
-
 
 end

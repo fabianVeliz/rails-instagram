@@ -10,7 +10,7 @@ Rails.application.routes.draw do
 
   resources :users, only: :index
 
-  get '/:user_name', to: 'users#profile', as: 'user_profile'
+  get '/:slug', to: 'users#profile', as: 'user_profile'
 
   root 'photos#index'
 

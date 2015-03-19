@@ -1,12 +1,9 @@
 class UsersController < ApplicationController
-  expose(:user_name){ params[:user_name] }
+  expose(:user)   { User.friendly.find(params[:slug]) }
+  expose(:photos) { user.photos }
   expose(:users)
 
   def index; end
-
-  def profile
-    @user = User.find_by(user_name: user_name)
-    @photos = User.find_by(user_name: user_name).photos
-  end
+  def profile; end
 
 end
