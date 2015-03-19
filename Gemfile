@@ -29,6 +29,11 @@ group :development do
   gem 'sqlite3'
 end
 
+# Production
+group :production do
+  gem 'pg'
+end
+
 # Misc
 group :doc do
   gem 'sdoc', require: false
