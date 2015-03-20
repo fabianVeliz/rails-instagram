@@ -1,0 +1,10 @@
+.inner-container
+  h1 Listing photos
+  br
+
+  - if @photos.any?
+    .items
+      = render @photos
+
+  - else
+    |No photo

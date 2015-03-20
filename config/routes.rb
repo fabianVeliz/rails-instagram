@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   devise_for :users
 
   resources :photos, except: [:update, :destroy, :edit] do
+    get 'all', on: :collection
     resources :comments, only: [:create]
   end
 

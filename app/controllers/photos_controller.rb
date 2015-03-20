@@ -29,6 +29,10 @@ class PhotosController < ApplicationController
     @comments = @photo.comments.all.includes(:user)
   end
 
+  def all
+    @photos = Photo.includes(:user).all
+  end
+
   private
 
   def photo_params
