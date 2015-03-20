@@ -43,6 +43,10 @@ class User < ActiveRecord::Base
     followings.map{|u| u.user_following_id} + [id]
   end
 
+  def followed_users_ids
+    followings.map{|u| u.user_following_id}
+  end
+
   private
 
 end

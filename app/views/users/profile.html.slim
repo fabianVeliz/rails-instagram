@@ -11,6 +11,7 @@
       - if user_signed_in? && !my_profile?
         #following
           = render 'following', user: user
+
       br
       h4 Followed users:
       - if user.followings_count > 0

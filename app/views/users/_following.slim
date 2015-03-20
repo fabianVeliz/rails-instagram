@@ -1,5 +1,4 @@
-- if user_signed_in? && !my_profile?
-  - if current_user.follow_user?(user)
-    = button_to 'Unfollow!', following_path(user.slug), method: :delete, remote: true
-  - else
-    = button_to 'Follow', followings_path(slug: user.slug), remote: true
+- if current_user.follow_user?(user)
+  = button_to 'Unfollow!', following_path(user.slug), method: :delete, remote: true
+- else
+  = button_to 'Follow', followings_path(slug: user.slug), remote: true
