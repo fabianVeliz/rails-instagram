@@ -2,11 +2,11 @@
 
 @font-face {
   font-family: 'rails-instagram';
-  src:url('fonts/rails-instagram.eot?-ehtj62');
-  src:url('fonts/rails-instagram.eot?#iefix-ehtj62') format('embedded-opentype'),
-    url('fonts/rails-instagram.woff?-ehtj62') format('woff'),
-    url('fonts/rails-instagram.ttf?-ehtj62') format('truetype'),
-    url('fonts/rails-instagram.svg?-ehtj62#rails-instagram') format('svg');
+  src:asset-url('fonts/rails-instagram.eot?-ehtj62');
+  src:asset-url('fonts/rails-instagram.eot?#iefix-ehtj62') format('embedded-opentype'),
+    asset-url('fonts/rails-instagram.woff?-ehtj62') format('woff'),
+    asset-url('fonts/rails-instagram.ttf?-ehtj62') format('truetype'),
+    asset-url('fonts/rails-instagram.svg?-ehtj62#rails-instagram') format('svg');
   font-weight: normal;
   font-style: normal;
 }
