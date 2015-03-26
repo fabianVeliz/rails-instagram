@@ -17,8 +17,10 @@ class User < ActiveRecord::Base
   has_many :photos
   has_many :comments
   has_many :followings
+  has_many :followers, class_name: 'Following', foreign_key: 'user_following_id'
 
   has_many :followed_users, through: :followings, source: :user_following
+  has_many :follower_users, through: :followers,  source: :user
 
   friendly_id :user_name, use: :slugged
 
@@ -50,3 +52,4 @@ class User < ActiveRecord::Base
   private
 
 end
+
